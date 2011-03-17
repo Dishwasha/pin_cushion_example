@@ -1,0 +1,44 @@
+PinCushionExample
+==========
+
+This is a Rails example of how to use Pin Cushion https://github.com/Dishwasha/pin_cushion.
+
+Pin Cushion adds true Multiple Table Inheritance via a simple ActiveRecord::Migration command that is totally agnostic to ActiveRecord.
+
+First run bundle install
+Then run git submodule update -i to initialize the pin_cushion plugin
+Lastly run rake db:create and rake db:migrate
+
+Example
+=======
+
+Once the pin_cushion_example is properly set up you should be able to do the following:
+
+> user = EmailUser.create(:givenname => "Ethan", :surname => "Waldo", :email => "ewaldo@talho.org")
+=> #<EmailUser id: 1, givenname: "Ethan", surname: "Waldo", email: "ewaldo@talho.org", created_at: "2011-03-16 22:51:19", updated_at: "2011-03-16 22:51:21">
+
+> EmailUser.first
+=> #<EmailUser id: 1, givenname: "Ethan", surname: "Waldo", email: "ewaldo@talho.org", created_at: "2011-03-16 22:51:19", updated_at: "2011-03-16 22:51:21">
+
+> User.first
+=> #<User id: 1, givenname: "Ethan", surname: "Waldo", type: "EmailUser", created_at: "2011-03-16 22:51:19", updated_at: "2011-03-16 22:51:21">
+
+> user.surname = "Weirdo"
+=> "Weirdo"
+
+> user.save
+=> true
+
+> EmailUser.first
+=> #<EmailUser id: 1, givenname: "Ethan", surname: "Weirdo", email: "ewaldo@talho.org", created_at: "2011-03-16 22:51:19", updated_at: "2011-03-16 22:51:47">
+
+> user.destroy
+=> #<EmailUser id: 1, givenname: "Ethan", surname: "Weirdo", email: "ewaldo@talho.org", created_at: "2011-03-16 22:51:19", updated_at: "2011-03-16 22:51:47">
+
+> EmailUser.first
+=> nil
+
+> User.first
+=> nil
+
+Copyright (c) 2011 Ethan Waldo, released under the MIT license

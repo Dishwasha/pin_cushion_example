@@ -1,0 +1,3 @@
+[submodule "vendor/plugins/pin_cushion"]
+	path = vendor/plugins/pin_cushion
+	url = git://github.com/Dishwasha/pin_cushion.git
