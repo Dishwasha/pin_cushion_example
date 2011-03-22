@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20110317133813) do
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "user_type"
   end
 
 end
